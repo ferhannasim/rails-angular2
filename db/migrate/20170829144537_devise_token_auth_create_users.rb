@@ -5,7 +5,7 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :email
       t.string :access_token
-      t.time :expiry_time
+      t.datetime :expiry_time
       
       t.timestamps null: false
     end

@@ -1,15 +1,15 @@
 class Api::V1::UsersController < ApplicationController
   
   def create
-    
-    user=User.find_by_uid(params[:profileData][:uid])
+    user=User.find_by_email(params[:profileData][:email])
     if user.present?
       user.access_token=params[:user][:accessToken]
-      user.expiry_time = params[:user][:expiryTime]
+      user.expiry_time = Time.at(params[:user][:expiryTime])
     else
       user             =User.new
       user.access_token=params[:user][:accessToken]
-      user.expiry_time = params[:user][:expiryTime]
+      user.expiry_time = Time.at(params[:user][:expiryTime])
+
       user.uid         =params[:profileData][:uid]
       user.email       = params[:profileData][:email]
       user.name        =params[:profileData][:name]

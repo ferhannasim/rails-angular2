@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170922215251) do
     t.string "name"
     t.string "email"
     t.string "access_token"
-    t.time "expiry_time"
+    t.datetime "expiry_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["uid"], name: "index_users_on_uid"

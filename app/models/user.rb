@@ -15,6 +15,8 @@
 
 class User < ActiveRecord::Base
   has_many :books
+  validates_uniqueness_of :uid
+  validates_presence_of :expiry_time
 
 
 end

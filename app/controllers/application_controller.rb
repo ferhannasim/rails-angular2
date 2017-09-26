@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   
   def authenticate
     authenticate_or_request_with_http_token do |token, options|
-      @user = User.where(access_token:  token).first
+      User.where(access_token:  token)if User.exists?(access_token:  token)
+
     end
   end
 end
